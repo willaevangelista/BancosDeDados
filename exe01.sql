@@ -56,15 +56,15 @@ SELECT * FROM tb_personagens WHERE poder_defesa BETWEEN 1000 AND 2000;
 SELECT * FROM tb_personagens WHERE nome LIKE '%C%';
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_personagens com os dados da tabela tb_classes
-SELECT p.id, p.nome AS personagem_nome, p.poder_ataque, p.poder_defesa, c.nome AS classe_nome
-FROM tb_personagens p
-INNER JOIN tb_classes c ON p.id_classe = c.id;
+SELECT tb_personagens.id, tb_personagens.nome, tb_personagens.poder_ataque, tb_personagens.poder_defesa, tb_classes.nome
+FROM tb_personagens
+INNER JOIN tb_classes ON tb_personagens.id_classe = tb_classes.id;
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_personagens com os dados da tabela tb_classes, onde traga apenas os personagens que pertençam a uma classe específica
-SELECT p.id, p.nome AS personagem_nome, p.poder_ataque, p.poder_defesa, c.nome AS classe_nome
-FROM tb_personagens p
-INNER JOIN tb_classes c ON p.id_classe = c.id
-WHERE c.nome = 'Mago';
+SELECT tb_personagens.id, tb_personagens.nome, tb_personagens.poder_ataque, tb_personagens.poder_defesa, tb_classes.nome
+FROM tb_personagens
+INNER JOIN tb_classes ON tb_personagens.id_classe = tb_classes.id
+WHERE tb_classes.nome = 'Mago'; 
 
 
 

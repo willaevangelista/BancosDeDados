@@ -51,15 +51,15 @@ SELECT * FROM tb_cursos WHERE preco BETWEEN 600 AND 1000;
 SELECT * FROM tb_cursos WHERE nome LIKE '%J%';
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_cursos com os dados da tabela tb_categorias
-SELECT c.id, c.nome AS curso_nome, c.preco, c.carga_horaria, c.professor, cat.nome AS categoria_nome
-FROM tb_cursos c
-INNER JOIN tb_categorias cat ON c.id_categoria = cat.id;
+SELECT tb_cursos.id, tb_cursos.nome, tb_cursos.preco, tb_cursos.carga_horaria, tb_cursos.professor, tb_categorias.nome
+FROM tb_cursos
+INNER JOIN tb_categorias ON tb_cursos.id_categoria = tb_categorias.id;
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_cursos com os dados da tabela tb_categorias, onde traga apenas os produtos que pertençam a uma categoria específica
-SELECT c.id, c.nome AS curso_nome, c.preco, c.carga_horaria, c.professor, cat.nome AS categoria_nome
-FROM tb_cursos c
-INNER JOIN tb_categorias cat ON c.id_categoria = cat.id
-WHERE cat.nome = 'Idiomas';
+SELECT tb_cursos.id, tb_cursos.nome, tb_cursos.preco, tb_cursos.carga_horaria, tb_cursos.professor, tb_categorias.nome
+FROM tb_cursos
+INNER JOIN tb_categorias ON tb_cursos.id_categoria = tb_categorias.id
+WHERE tb_categorias.nome = 'Design';
 
 
 

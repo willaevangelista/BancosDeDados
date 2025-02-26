@@ -50,15 +50,15 @@ SELECT * FROM tb_pizzas WHERE preco BETWEEN 50 AND 100;
 SELECT * FROM tb_pizzas WHERE nome LIKE '%M%';
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_pizzas com os dados da tabela tb_categorias
-SELECT p.id, p.nome AS pizza_nome, p.preco, p.descricao AS pizza_descricao, c.nome AS categoria_nome
-FROM tb_pizzas p
-INNER JOIN tb_categorias c ON p.id_categoria = c.id;
+SELECT tb_pizzas.id, tb_pizzas.nome, tb_pizzas.preco, tb_pizzas.descricao, tb_categorias.nome
+FROM tb_pizzas
+INNER JOIN tb_categorias ON tb_pizzas.id_categoria = tb_categorias.id;
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_pizzas com os dados da tabela tb_categorias, onde traga apenas as pizzas que pertençam a uma categoria específica
-SELECT p.id, p.nome AS pizza_nome, p.preco, p.descricao AS pizza_descricao, c.nome AS categoria_nome
-FROM tb_pizzas p
-INNER JOIN tb_categorias c ON p.id_categoria = c.id
-WHERE c.nome = 'Vegetariana';
+SELECT tb_pizzas.id, tb_pizzas.nome, tb_pizzas.preco, tb_pizzas.descricao, tb_categorias.nome
+FROM tb_pizzas
+INNER JOIN tb_categorias ON tb_pizzas.id_categoria = tb_categorias.id
+WHERE tb_categorias.nome = 'Vegetariana';
 
 
 

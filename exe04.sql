@@ -51,15 +51,15 @@ SELECT * FROM tb_produtos WHERE preco BETWEEN 50 AND 150;
 SELECT * FROM tb_produtos WHERE nome LIKE '%C%';
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias
-SELECT p.id, p.nome AS produto_nome, p.preco, p.quantidade_estoque, c.nome AS categoria_nome
-FROM tb_produtos p
-INNER JOIN tb_categorias c ON p.id_categoria = c.id;
+SELECT tb_produtos.id, tb_produtos.nome, tb_produtos.preco, tb_produtos.quantidade_estoque, tb_categorias.nome
+FROM tb_produtos
+INNER JOIN tb_categorias ON tb_produtos.id_categoria = tb_categorias.id;
 
 -- Seleção utilizando o INNER JOIN unindo os dados da tabela tb_produtos com os dados da tabela tb_categorias, onde traga apenas os produtos que pertençam a uma categoria específica
-SELECT p.id, p.nome AS produto_nome, p.preco, p.quantidade_estoque, c.nome AS categoria_nome
-FROM tb_produtos p
-INNER JOIN tb_categorias c ON p.id_categoria = c.id
-WHERE c.nome IN ('Frutas', 'Legumes');
+SELECT tb_produtos.id, tb_produtos.nome, tb_produtos.preco, tb_produtos.quantidade_estoque, tb_categorias.nome
+FROM tb_produtos
+INNER JOIN tb_categorias ON tb_produtos.id_categoria = tb_categorias.id
+WHERE tb_categorias.nome IN ('Frutas', 'Legumes');
 
 
 
